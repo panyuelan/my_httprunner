@@ -1,3 +1,4 @@
+sudo: false
 language: python
 python:
   - "3.6"      # current default Python on Travis CI
@@ -9,4 +10,5 @@ install:
   - poetry install -vvv
 # command to run tests
 script:
-  - python test_mytest.py
+  - coverage run --source=test_mytest -m unittest discover
+  - coverage report
