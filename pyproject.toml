@@ -7,6 +7,7 @@ authors = ["pan"]
 [tool.poetry.dependencies]
 python = "^3.6"
 requests = "^2.23.0"
+pyyaml = "^5.3.1"
 
 [tool.poetry.dev-dependencies]
 coverage = "^5.0.4"
