@@ -10,5 +10,6 @@ install:
   - poetry install -vvv
 # command to run tests
 script:
-  - coverage run --source=test_mytest -m unittest discover
-  - coverage report
+  - poetry run coverage run --source=test_mytest -m unittest discover
+  - poetry run coverage report
+  - poetry run coveralls

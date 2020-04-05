@@ -10,6 +10,7 @@ requests = "^2.23.0"
 
 [tool.poetry.dev-dependencies]
 coverage = "^5.0.4"
+coveralls = "^1.11.1"
 
 [build-system]
 requires = ["poetry>=0.12"]
