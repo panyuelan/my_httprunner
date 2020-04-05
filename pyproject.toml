@@ -8,6 +8,7 @@ authors = ["pan"]
 python = "^3.6"
 requests = "^2.23.0"
 pyyaml = "^5.3.1"
+jsonpath = "^0.82"
 
 [tool.poetry.dev-dependencies]
 coverage = "^5.0.4"
