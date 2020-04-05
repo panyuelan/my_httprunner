@@ -12,3 +12,5 @@ install:
 script:
   - poetry run coverage run --source=test_mytest -m unittest discover
   - poetry run coverage report
+after_success:
+  - poetry run coveralls
