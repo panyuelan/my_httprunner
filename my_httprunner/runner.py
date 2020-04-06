@@ -20,9 +20,10 @@ def run_yaml(file_path):
         else:
            actual_value = getattr(reps, key)
         expected_value = validator_mapping[key]
-        return actual_value == expected_value
+        assert actual_value == expected_value
+    return True
 
 
 def extract_json_field(resp, json_field):
     value = jsonpath.jsonpath(resp.json(), json_field)
-    return value
+    return value[0]
