@@ -1,9 +1,11 @@
 import jsonpath
 
 from my_httprunner.loader import load_yaml
-import requests
+from requests import sessions
 
 from my_httprunner.validate import is_api, is_testcase
+
+session = sessions.session()
 
 
 def run_yaml(yml_file):
@@ -24,7 +26,6 @@ def run_yaml(yml_file):
 
 
 def run_api(api_info):
-
     """
     :param api_info:
         {
@@ -36,7 +37,7 @@ def run_api(api_info):
     request = api_info["request"]
     method = request.pop("method")
     url = request.pop("url")
-    reps = requests.request(method=method, url=url, **request)
+    reps = session.request(method=method, url=url, **request)
 
     validator_mapping = api_info["validate"]
     for key in validator_mapping:
