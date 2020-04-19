@@ -14,5 +14,5 @@ class TestSingleApi(unittest.TestCase):
     def test_run_single_api_yaml(self):
         testcase_yaml = os.path.join(os.path.dirname(__file__), "testcase", "mubu_login.yml")
         result = run_yaml(testcase_yaml)
-        self.assertEqual(len(result), 2)
+        self.assertEqual(len(result), 3)
 

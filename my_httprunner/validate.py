@@ -11,4 +11,7 @@ def is_api(content):
 def is_testcase(content):
     if not isinstance(content, list):
         return False
+    for item in content:
+        if not is_api(item):
+            return False
     return True
