@@ -3,6 +3,7 @@ import unittest
 from my_httprunner.loader import load_yaml
 from my_httprunner.runner import run_yaml
 
+#  多个api
 
 class TestSingleApi(unittest.TestCase):
 
@@ -15,4 +16,3 @@ class TestSingleApi(unittest.TestCase):
         testcase_yaml = os.path.join(os.path.dirname(__file__), "testcase", "mubu_login.yml")
         result = run_yaml(testcase_yaml)
         self.assertEqual(len(result), 3)
-

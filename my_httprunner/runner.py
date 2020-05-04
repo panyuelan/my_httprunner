@@ -11,6 +11,10 @@ variable_regex_compile = re.compile(r".*\$(\w+).*")
 
 
 def run_yaml(yml_file):
+    """
+    :param yml_file: filepath
+    :return:
+    """
     load_content = load_yaml(yml_file)
     result = []
     if is_api(load_content):
@@ -32,7 +36,8 @@ def run_api(api_info):
     :param api_info:
         {
             "request": {},
-            "validate": {}
+            "validate": {}，
+            "extract": {}
         }
     :return:
     """
@@ -63,6 +68,13 @@ def run_api(api_info):
 
 
 def parse_content(content, variables_map):
+    """
+    :param content:
+        content的可能是list，dict，str，other
+    :param variables_map:
+        变量
+    :return:
+    """
     if isinstance(content, dict):
         parsed_content = {}
         for key, value in content.items():
@@ -89,6 +101,12 @@ def parse_content(content, variables_map):
 
 
 def replace_var(content, variables_map):
+    """
+    将变量，根据variables_map，进行替换
+    :param content:
+    :param variables_map:
+    :return:
+    """
     matched = variable_regex_compile.match(content)
     if not matched:
         return content
@@ -99,5 +117,11 @@ def replace_var(content, variables_map):
 
 
 def extract_json_field(resp, json_field):
+    """
+    利用jsonpath 根据json_field公式取resp中的值
+    :param resp:  接口请求返回的response
+    :param json_field： 需要查找的字段key  $.code
+    :return:
+    """
     value = jsonpath.jsonpath(resp.json(), json_field)
     return value[0]
